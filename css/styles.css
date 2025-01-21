@@ -24,15 +24,20 @@ body{
 }
 
 #calc h3{
-    font-size: .8em;
+    font-size: 0.9em;
     font-weight: 300;
     color: #666;
+    padding: 0 2px;
 }
 
 /* Display Screen:*/
 
 #operations{
     text-align: right;
+    border: 1px solid #eba524;
+    padding: .1em;
+    margin: 8px 0;
+    border-radius: 3px;
 }
 
 #previous-operation,
@@ -49,6 +54,7 @@ body{
 #current-operation{
     font-size: 3em;
     font-weight: 700;
+    color: #993393;
 }
 
 /* Buttons: numbers and operators */
