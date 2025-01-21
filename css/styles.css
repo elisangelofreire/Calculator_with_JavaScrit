@@ -6,7 +6,7 @@
 }
 
 body{
-    background-color: #f333;
+    background-color: #f3f3f3;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,10 +16,11 @@ body{
 #calc {
     width: 400px;
     padding: .5em;
-    background-color: #C4C4C4;
+    background-color: #ecb44a99;
     color: #000;
     display: flex;
     flex-direction: column;
+    border-radius: 3px;
 }
 
 #calc h3{
@@ -63,26 +64,25 @@ body{
     border-radius: 0;
     height: 4em;
     font-size: 1.2em;
-    background-color: #DBDBDB;
+    background-color: #DBDBDB70;
     cursor: pointer;
 }
 
 #buttons-container .number{
-    background-color: #f3f3f3;
+    background-color: #ffffff97;
 }
 
 #buttons-container button:hover{
-    background-color: #BABABA;
-    border-color: #999;
+    background-color: #eba524;
+    border-radius: 15px;
 }
 
 #buttons-container #equal-btn{
     grid-column: span 2;
-    background-color: #75A5CB;
+    background-color: #993393;
     color: #fff;
 }
 
 #buttons-container #equal-btn:hover{
-    background-color: #3A91D8;
-    color: #fff;
+    background-color: #c428b9;
 }
