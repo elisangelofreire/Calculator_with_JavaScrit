@@ -15,6 +15,9 @@ class Calculator {
     }
 }
 
+//Step05: instanciando a classe Calculator:
+const calc = new Calculator(previousOperandTextElement, currentOperandTextElement);
+
 //Step03: Criando os eventos dos buttons para pegar os seus valores, no caso, numeros e sinais:
 numberButtons.forEach((btn) => {
     //Step03.1: Com o evento click, pegamos o valor do button clicado para futura operação:
