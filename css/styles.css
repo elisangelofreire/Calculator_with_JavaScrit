@@ -80,7 +80,7 @@ body{
 
 #buttons-container button:hover{
     background-color: #eba524;
-    border-radius: 15px;
+    border-radius: 15px;    
 }
 
 #buttons-container #equal-btn{
@@ -91,4 +91,5 @@ body{
 
 #buttons-container #equal-btn:hover{
     background-color: #c428b9;
+    transition: all 0.8s ease;
 }
