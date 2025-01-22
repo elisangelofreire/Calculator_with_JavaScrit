@@ -8,4 +8,10 @@ class Calculator {
 
 }
 
-//Criando os eventos dos buttons:
+//Criando os eventos dos buttons para pegar os seus valores, no caso, numeros e sinais:
+numberButtons.forEach((btn) => {
+    btn.addEventListener('click', (e) =>{
+        const number = e.target.innerText;
+        console.log(number);
+    })
+})
