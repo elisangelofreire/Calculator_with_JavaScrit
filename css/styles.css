@@ -83,6 +83,13 @@ body{
     border-radius: 15px;    
 }
 
+#buttons-container .alert:hover{
+    /*background-color: #7c2014;*/
+    background-color: #ff000090;
+    color: #fff;
+    transition-delay: 0.2s;
+}
+
 #buttons-container #equal-btn{
     grid-column: span 2;
     background-color: #993393;
