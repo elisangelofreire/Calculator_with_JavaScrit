@@ -5,7 +5,14 @@ const numberButtons = document.querySelectorAll('#buttons-container button');
 
 //Step02: Criando a classe Calculator:
 class Calculator {
-
+    //Step04: Criando o construtor da classe:
+    constructor(previousOperandTextElement, currentOperandTextElement) {
+        //Para os dados já existentesno screen da calculadora:
+        this.previousOperandTextElement = previousOperandTextElement;
+        this.currentOperandTextElement = currentOperandTextElement;
+        //Para os dados que estão sendo digitados no screen da calculadora:
+        this.currentOperation = '';
+    }
 }
 
 //Step03: Criando os eventos dos buttons para pegar os seus valores, no caso, numeros e sinais:
