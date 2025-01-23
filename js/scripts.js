@@ -28,7 +28,14 @@ class Calculator {
 
     //Step07: método para operações de cálculo:
     processOperation(operation) {
-
+        //Step07.6: mudando de operação se o currentValue estiver vazio:
+        if(this.currentOperationTextElement.innerText === ''){
+            //mudança de operação
+            if(this.previousOperationTextElement.innerText !== ''){
+                this.changeOperation(operation); //ver método criado em baixo Step07.6.1
+            }
+            return;
+        }
         //Step07.1: Pegando os valores current e previous:
         let operationValue;
         const previousValue = +this.previousOperationTextElement.innerText.split(" ")[0]; //o + antes da variável converte a string em número
@@ -83,6 +90,18 @@ class Calculator {
         }
         
 }
+
+//Step07.6.1: método de mudança de operações math:
+changeOperation(operation){
+    const mathOperations = ['*', '/', '+', '-'];
+
+    if(!mathOperations.includes(operation)){
+        return; //para parar caso não seja introduzido operation math
+    }
+
+    this.previousOperationTextElement.innerText = this.previousOperationTextElement.innerText.slice(0,-1) + operation;
+}
+
 } // end class Calculator
 
 //Step05: instanciando a classe Calculator:
