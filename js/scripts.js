@@ -74,6 +74,10 @@ class Calculator {
             case 'C':
                 this.processClearAllOperator(); // criado embaixo Step07.9.1
                 break;
+            //Step07.10: tecla =
+            case '=':
+                this.processEqualOperator(); // criado embaixo Step07.10.1
+                break;
             default:
                 return; //caso não seja nenhuma operação válida, o método para aqui
         }
@@ -128,6 +132,12 @@ processClearAllOperator(){
     this.currentOperationTextElement.innerText = '';
     this.previousOperationTextElement.innerText = '';
 }
+
+//Step07.10.1: método de = que realiza a operação 
+processEqualOperator(){
+    const operation = previousOperationTextElement.innerText.split('')[1]; //split para pegar a segunda parte da operação
+    this.processOperation(operation);
+};
 
 } // end class Calculator
 
