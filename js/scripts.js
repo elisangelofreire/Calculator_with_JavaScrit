@@ -1,35 +1,47 @@
 //Step01: Selecionando os elementos do html:
-const previousOperandTextElement = document.querySelector('#previous-operand');
-const currentOperandTextElement = document.querySelector('#current-operand');
-const numberButtons = document.querySelectorAll('#buttons-container button');
+const previousOperationTextElement = document.querySelector('#previous-operation');
+const currentOperationTextElement = document.querySelector('#current-operation');
+const buttons = document.querySelectorAll('#buttons-container button');
 
 //Step02: Criando a classe Calculator:
 class Calculator {
     //Step04: Criando o construtor da classe:
-    constructor(previousOperandTextElement, currentOperandTextElement) {
+    constructor(previousOperationTextElement, currentOperationTextElement) {
         //Para os dados já existentesno screen da calculadora:
-        this.previousOperandTextElement = previousOperandTextElement;
-        this.currentOperandTextElement = currentOperandTextElement;
+        this.previousOperationTextElement = previousOperationTextElement;
+        this.currentOperationTextElement = currentOperationTextElement;
         //Para os dados que estão sendo digitados no screen da calculadora:
         this.currentOperation = '';
     }
+
+    //Step06: Criando o método para adicionar um número ou sinal no screen da calculadora:
+    addDigit(digit) {
+        this.currentOperation = digit;
+
+        //Step06.1: Atualizando o screen da calculadora:
+        this.updateScreen();
+    }
+
+    //Step06.2: Criando o método para atualizar o screen da calculadora:
+    updateScreen() {
+        this.currentOperationTextElement.innerText += this.currentOperation;
+}
 }
 
 //Step05: instanciando a classe Calculator:
-const calc = new Calculator(previousOperandTextElement, currentOperandTextElement);
+const calc = new Calculator(previousOperationTextElement, currentOperationTextElement);
 
 //Step03: Criando os eventos dos buttons para pegar os seus valores, no caso, numeros e sinais:
-numberButtons.forEach((btn) => {
+buttons.forEach((btn) => {
     //Step03.1: Com o evento click, pegamos o valor do button clicado para futura operação:
     btn.addEventListener('click', (e) =>{
         const btnValue = e.target.innerText;
         
         //Step03.2: Verificando se o valor é um número ou um sinal:
-        if (+btnValue >= 0 || btnValue === '.') { //o + antes da variável btnValue converte a string em número
+        if (!isNaN(btnValue) >= 0 || btnValue === '.') { //o + antes da variável btnValue converte a string em número
             console.log(btnValue);
         } else {
             console.log('Sinal: ', btnValue);            
         }
-
     });
 });
