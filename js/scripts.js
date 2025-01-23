@@ -29,7 +29,7 @@ class Calculator {
     //Step07: método para operações de cálculo:
     processOperation(operation) {
         //Step07.6: mudando de operação se o currentValue estiver vazio:
-        if(this.currentOperationTextElement.innerText === ''){
+        if(this.currentOperationTextElement.innerText === '' && operation !== 'C'){ //Step07.9.2
             //mudança de operação
             if(this.previousOperationTextElement.innerText !== ''){
                 this.changeOperation(operation); //ver método criado em baixo Step07.6.1
@@ -67,10 +67,13 @@ class Calculator {
                 this.processDelOperator(); // criado em baixo Step07.7.1
                 break;
             //Step07.8: tecla CE
-            case 'DEL':
+            case 'CE':
                 this.processClearCurrentOperator(); // criado embaixo Step07.8.1
                 break;
-        
+            //Step07.9: tecla C
+            case 'C':
+                this.processClearAllOperator(); // criado embaixo Step07.9.1
+                break;
             default:
                 return; //caso não seja nenhuma operação válida, o método para aqui
         }
@@ -118,6 +121,12 @@ processDelOperator(){
 //Step07.8.1: mẽtodo de CE: apaga o valor current
 processClearCurrentOperator(){
     this.currentOperationTextElement.innerText = '';
+}
+
+//Step07.9.1: método de C que apaga todos os valores previous e currentValue do screen
+processClearAllOperator(){
+    this.currentOperationTextElement.innerText = '';
+    this.previousOperationTextElement.innerText = '';
 }
 
 } // end class Calculator
