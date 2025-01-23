@@ -24,6 +24,12 @@ class Calculator {
         this.updateScreen(); //Step06.3: Atualizando o screen da calculadora:
     }
 
+    //Step07: método para operações de cálculo:
+    processOperation(operation) {
+
+    }
+
+
     //Step06.4: Criando a lógica do método para atualizar o screen da calculadora que será chamado em várias partes do código:
     updateScreen() {
         this.currentOperationTextElement.innerText += this.currentOperation; //Step06.4.1ª atualização
@@ -45,7 +51,8 @@ buttons.forEach((btn) => {
             //console.log(btnValue);
             calc.addDigit(btnValue); //Step06.1
         } else {
-            console.log('Sinal: ', btnValue);            
+            //console.log('Sinal: ', btnValue);
+            calc.processOperation(btnValue); //Step07.1           
         }
     });
 });
