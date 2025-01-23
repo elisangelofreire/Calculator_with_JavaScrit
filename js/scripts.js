@@ -16,6 +16,9 @@ class Calculator {
 
     //Step06: Criando o método para adicionar um número ou sinal na calculadora:
     addDigit(digit) {
+        //Step06.4: condição para o número não ter mais de um ponto de decimal:
+        if (digit === '.' && this.currentOperationTextElement.innerText.includes('.')) return;
+
         this.currentOperation = digit; //Step06.2 pra saber qual digito foi digitado
 
         this.updateScreen(); //Step06.3: Atualizando o screen da calculadora:
@@ -23,8 +26,8 @@ class Calculator {
 
     //Step06.4: Criando a lógica do método para atualizar o screen da calculadora que será chamado em várias partes do código:
     updateScreen() {
-        this.currentOperationTextElement.innerText += this.currentOperation; //1ª atualização
-        
+        this.currentOperationTextElement.innerText += this.currentOperation; //Step06.4.1ª atualização
+
 }
 }
 
