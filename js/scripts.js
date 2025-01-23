@@ -66,6 +66,10 @@ class Calculator {
             case 'DEL':
                 this.processDelOperator(); // criado em baixo Step07.7.1
                 break;
+            //Step07.8: tecla CE
+            case 'DEL':
+                this.processClearCurrentOperator(); // criado embaixo Step07.8.1
+                break;
         
             default:
                 return; //caso não seja nenhuma operação válida, o método para aqui
@@ -106,9 +110,14 @@ changeOperation(operation){
     this.previousOperationTextElement.innerText = this.previousOperationTextElement.innerText.slice(0,-1) + operation;
 }
 
-//Step07.7.1 método de DEL: apaga o último digito de currentValue screen
+//Step07.7.1: método de DEL: apaga o último digito de currentValue screen
 processDelOperator(){
     this.currentOperationTextElement.innerText = this.currentOperationTextElement.innerText.slice(0, -1);
+}
+
+//Step07.8.1: mẽtodo de CE: apaga o valor current
+processClearCurrentOperator(){
+    this.currentOperationTextElement.innerText = '';
 }
 
 } // end class Calculator
