@@ -62,6 +62,10 @@ class Calculator {
                 operationValue = previousValue * currentValue; //Step07.3.4: operação de multiplicaçã
                 this.updateScreen(operationValue, operation, currentValue, previousValue); 
                 break;
+            //Step07.7: tecla DEL
+            case 'DEL':
+                this.processDelOperator(); // criado em baixo Step07.7.1
+                break;
         
             default:
                 return; //caso não seja nenhuma operação válida, o método para aqui
@@ -100,6 +104,11 @@ changeOperation(operation){
     }
 
     this.previousOperationTextElement.innerText = this.previousOperationTextElement.innerText.slice(0,-1) + operation;
+}
+
+//Step07.7.1 método de DEL: apaga o último digito de currentValue screen
+processDelOperator(){
+    this.currentOperationTextElement.innerText = this.currentOperationTextElement.innerText.slice(0, -1);
 }
 
 } // end class Calculator
