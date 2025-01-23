@@ -14,17 +14,17 @@ class Calculator {
         this.currentOperation = '';
     }
 
-    //Step06: Criando o método para adicionar um número ou sinal no screen da calculadora:
+    //Step06: Criando o método para adicionar um número ou sinal na calculadora:
     addDigit(digit) {
-        this.currentOperation = digit;
+        this.currentOperation = digit; //Step06.2 pra saber qual digito foi digitado
 
-        //Step06.1: Atualizando o screen da calculadora:
-        this.updateScreen();
+        this.updateScreen(); //Step06.3: Atualizando o screen da calculadora:
     }
 
-    //Step06.2: Criando o método para atualizar o screen da calculadora:
+    //Step06.4: Criando a lógica do método para atualizar o screen da calculadora que será chamado em várias partes do código:
     updateScreen() {
-        this.currentOperationTextElement.innerText += this.currentOperation;
+        this.currentOperationTextElement.innerText += this.currentOperation; //1ª atualização
+        
 }
 }
 
@@ -39,7 +39,8 @@ buttons.forEach((btn) => {
         
         //Step03.2: Verificando se o valor é um número ou um sinal:
         if (!isNaN(btnValue) >= 0 || btnValue === '.') { //o + antes da variável btnValue converte a string em número
-            console.log(btnValue);
+            //console.log(btnValue);
+            calc.addDigit(btnValue); //Step06.1
         } else {
             console.log('Sinal: ', btnValue);            
         }
