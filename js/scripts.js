@@ -31,14 +31,14 @@ class Calculator {
         //Step07.6: mudando de operação se o currentValue estiver vazio:
         if(this.currentOperationTextElement.innerText === '' && operation !== 'C'){ //Step07.9.2
             //mudança de operação
-            if(this.previousOperationTextElement.innerText !== ''){
+            if(this.previousOperationTextElement.innerText !== ' '){
                 this.changeOperation(operation); //ver método criado em baixo Step07.6.1
             }
             return;
         }
         //Step07.1: Pegando os valores current e previous:
         let operationValue;
-        const previousValue = +this.previousOperationTextElement.innerText.split(" ")[0]; //o + antes da variável converte a string em número
+        const previousValue = +this.previousOperationTextElement.innerText.split(' ')[0]; //o + antes da variável converte a string em número
         const currentValue = +this.currentOperationTextElement.innerText; //o + antes da variável converte a string em número
         
         //Step07.3: Verificando qual operação foi escolhida:
@@ -124,18 +124,18 @@ processDelOperator(){
 
 //Step07.8.1: mẽtodo de CE: apaga o valor current
 processClearCurrentOperator(){
-    this.currentOperationTextElement.innerText = '';
+    this.currentOperationTextElement.innerText = ' ';
 }
 
 //Step07.9.1: método de C que apaga todos os valores previous e currentValue do screen
 processClearAllOperator(){
-    this.currentOperationTextElement.innerText = '';
-    this.previousOperationTextElement.innerText = '';
+    this.currentOperationTextElement.innerText = ' ';
+    this.previousOperationTextElement.innerText = ' ';
 }
 
 //Step07.10.1: método de = que realiza a operação 
 processEqualOperator(){
-    const operation = previousOperationTextElement.innerText.split('')[1]; //split para pegar a segunda parte da operação
+    const operation = previousOperationTextElement.innerText.split(' ')[1]; //split para pegar a segunda parte da operação
     this.processOperation(operation);
 };
 
@@ -151,7 +151,7 @@ buttons.forEach((btn) => {
         const btnValue = e.target.innerText;
         
         //Step03.2: Verificando se o valor é um número ou um sinal:
-        if (!isNaN(btnValue) >= 0 || btnValue === '.') { //o + antes da variável btnValue converte a string em número
+        if (+btnValue >= 0 || btnValue === '.') { //o + antes da variável btnValue converte a string em número
             //console.log(btnValue);
             calc.addDigit(btnValue); //Step06.1
         } else {
