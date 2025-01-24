@@ -16,6 +16,19 @@ class Calculator {
 
     //Step06: Criando o método para adicionar um número ou sinal na calculadora:
     addDigit(digit) {
+
+        //Step08: permitir inserir n.º negativo com o sinal -
+        if(digit === '-' && this.currentOperationTextElement.innerText === ''){
+            this.currentOperation = digit;
+            this.updateScreen();
+            return;
+        };
+
+        //Step08.1: proibir multiplos sinais de menos em um nº
+        if(digit === '-' && this.currentOperationTextElement.innerText.includes('-')){
+            return;
+        }
+
         //Step06.4: condição para o número não ter mais de um ponto de decimal:
         if (digit === '.' && this.currentOperationTextElement.innerText.includes('.')) {
             return
@@ -114,7 +127,11 @@ changeOperation(operation){
         return; //para parar caso não seja introduzido operation math
     }
 
-    this.previousOperationTextElement.innerText = this.previousOperationTextElement.innerText.slice(0,-1) + operation;
+    //Step08.3: mudar previous screen
+    if(this.previousOperationTextElement.innerText){
+        this.previousOperationTextElement.innerText = this.previousOperationTextElement.innerText.slice(0,-1) + operation;
+    };
+    
 }
 
 //Step07.7.1: método de DEL: apaga o último digito de currentValue screen
@@ -150,8 +167,8 @@ buttons.forEach((btn) => {
     btn.addEventListener('click', (e) =>{
         const btnValue = e.target.innerText;
         
-        //Step03.2: Verificando se o valor é um número ou um sinal:
-        if (+btnValue >= 0 || btnValue === '.') { //o + antes da variável btnValue converte a string em número
+        //Step03.2: Verificando se o valor é um número ou um sinal: and //Step08.2: operação com nº negativo
+        if (Number(btnValue) || btnValue === '.' || (btnValue === '-' && calc.currentOperationTextElement.innerText === '')) {//converte a string em número e aceita ponto decimal
             //console.log(btnValue);
             calc.addDigit(btnValue); //Step06.1
         } else {
